@@ -44,7 +44,7 @@ namespace GreenHouseAttack.Dialouge
 			}
 
 			string sentence = sentences.Dequeue();
-			StartCouroutine(TypeSentence(sentence));
+			StartCoroutine(TypeSentence(sentence));
 		}
 
 		IEnumerator TypeSentence(string sentence)
