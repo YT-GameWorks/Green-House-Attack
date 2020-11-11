@@ -53,3 +53,7 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+#Quick search files
+Assets/Assets.index
+UserSettings/
