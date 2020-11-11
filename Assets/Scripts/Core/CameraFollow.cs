@@ -4,19 +4,18 @@ namespace GreenHouseAttack.Core
 {
 	public class CameraFollow : MonoBehaviour
 	{
-		//TODO: Make smooth.
-		public Transform FollowTarget;
+		public Transform Target;
 
-		private void LateUpdate()
+		public float smoothSpeed;
+		public Vector3 offset;
+
+		void LateUpdate()
 		{
-			Vector3 PlayerX = new Vector3();
-			PlayerX.x = FollowTarget.position.x;
-			gameObject.transform.position = PlayerX;
+			Vector3 desiredPosition = Target.position + offset;
+			Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+			transform.position = smoothedPosition;
 
-
-			Vector3 PlayerY = new Vector3();
-			PlayerY.y = FollowTarget.position.y;
-			gameObject.transform.position = PlayerY;
+			transform.LookAt(Target);
 		}
 	}
 }
