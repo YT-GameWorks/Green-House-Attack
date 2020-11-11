@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public namespace Core
+namespace GreenHouseAttack.Core
 {
     public class PlayerController : MonoBehaviour
     {

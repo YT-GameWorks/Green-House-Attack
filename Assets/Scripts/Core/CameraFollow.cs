@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
 
-public namespace Core
+namespace GreenHouseAttack.Core
 {
 	public class CameraFollow : MonoBehaviour
 	{
 		//TODO: Make smooth.
-		public GameObject FollowTarget;
+		public Transform FollowTarget;
 
 		private void LateUpdate()
 		{
-			gameObject.transform.localPosition = FollowTarget.transform.position;
+			Vector3 PlayerX = new Vector3();
+			PlayerX.x = FollowTarget.position.x;
+			gameObject.transform.position = PlayerX;
+
+
+			Vector3 PlayerY = new Vector3();
+			PlayerY.y = FollowTarget.position.y;
+			gameObject.transform.position = PlayerY;
 		}
 	}
 }
