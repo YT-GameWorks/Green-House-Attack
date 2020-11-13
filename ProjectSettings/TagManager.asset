@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: TransparentFx
+    uniqueID: 4223904509
+    locked: 0
   - name: Greenhouse
     uniqueID: 4087868997
     locked: 0
