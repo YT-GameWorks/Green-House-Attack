@@ -40,33 +40,18 @@ namespace GreenHouseAttack.Core
             rb = GetComponent<Rigidbody2D>();
         }
 
-        private void Update()
-        {
-            GroundCheck();
-        }
-
-        private void FixedUpdate()
-        {
-            Move();
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Jump();
-            }
-        }
-
         #endregion
 
         #region Movement api
 
-        private void Move()
+        public void Move(float LeftOrRight)
         {
-            float moveby = Input.GetAxis("Horizontal") * Speed;
+            float moveby = LeftOrRight * Speed;
 
             rb.velocity = new Vector2(moveby, rb.velocity.y);
         }
 
-        private void GroundCheck()
+        public void GroundCheck()
         {
             Collider2D collider = Physics2D.OverlapCircle(GroundChecker.position, GroundCheckRadius, GroundLayer);
 
