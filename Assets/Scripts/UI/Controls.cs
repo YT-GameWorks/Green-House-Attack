@@ -1,37 +1,37 @@
 ﻿using GreenHouseAttack.Core;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace GreenHouseAttack.UI
 {
-    public class Controls : MonoBehaviour
+    public class Controls : MonoBehaviour, IPossibleControls
     {
-        public Button test;
         public PlayerController playerController;
 
-        void Update()
+        public void PointerUpLeft()
         {
-            //Ground check every frame.
-            playerController.GroundCheck();
+            playerController.moveLeft = false;
         }
 
-        public void OnMoveLeft()
+        public void PointerDownLeft()
         {
-            //Move the player on the y axis by -1.
-           playerController.Move(-1f);
-            playerController.Move(0);
+            playerController.moveLeft = true;
         }
 
-        public void OnMoveRight()
+        public void PointerUpRight()
         {
-            //Move the player on the y axis 1.
-            playerController.Move(1f);
+            //FIXME MoveRight goes way too fast.
+            playerController.moveRight = false;
+        }
+
+        public void PointerDownRight()
+        {
+            playerController.moveRight = true;
         }
 
         public void OnJump()
         {
-            //Jump the player when jump button is pressed.
             playerController.Jump();
         }
+
     }
 }

@@ -1,5 +1,5 @@
 {
-"scopedRegistries": [
+  "scopedRegistries": [
     {
       "name": "consulo.io",
       "url": "https://upm.consulo.io/",
@@ -61,6 +61,6 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "com.consulo.ide": "2.2.0"
+    "com.consulo.ide": "2.4.0"
   }
 }

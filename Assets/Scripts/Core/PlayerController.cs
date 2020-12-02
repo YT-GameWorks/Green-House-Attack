@@ -30,6 +30,11 @@ namespace GreenHouseAttack.Core
         [SerializeField]
         private Rigidbody2D rb;
 
+		//button movement
+		public bool moveLeft = false;
+		public bool moveRight = false;
+		public float horizontalMove;
+
 
         #endregion
 
@@ -40,16 +45,35 @@ namespace GreenHouseAttack.Core
             rb = GetComponent<Rigidbody2D>();
         }
 
+		void Update()
+		{
+			Move();
+		}
+
         #endregion
 
         #region Movement api
 
-        public void Move(float LeftOrRight)
+        public void Move()
         {
-            float moveby = LeftOrRight * Speed;
-
-            rb.velocity = new Vector2(moveby, rb.velocity.y);
+	        if (moveLeft)
+	        {
+		        horizontalMove = Speed;
+	        }
+	        else if (moveRight)
+	        {
+		        horizontalMove -= Speed;
+	        }
+	        else
+	        {
+		        horizontalMove = 0;
+	        }
         }
+
+		void FixedUpdate()
+		{
+			rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
+		}
 
         public void GroundCheck()
         {
